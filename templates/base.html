@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Trip App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="base.html">TripDesi<span>Travel Agency</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="{% url 'base' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'create-destination' %}" class="nav-link">Destination</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<div class="hero-wrap js-fullheight" style="background-image: url('{% static 'assets/images/bg_5.jpg' %}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+            <div class="col-md-7 ftco-animate " style="height:550px ; margin: 150px 0px 100px 0px">
+                <span class="subheading">Welcome to Trip Desi</span>
+                <h1 class="mb-4">Discover Your Favorite Place with Us</h1>
+                <p class="caps">Travel to the any corner of the world, without going around in circles</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Search-->
+<section class="ftco-section ftco-no-pb ftco-no-pt ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="ftco-search d-flex justify-content-center">
+                    <div class="row col-md-12">
+                        <div class="col-md-12 nav-link-wrap">
+                            <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill"
+                                   href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Search
+                                    Tour</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 tab-wrap">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
+                                     aria-labelledby="v-pills-nextgen-tab">
+
+                                    <form method="post" class="search-property-1">
+                                        {% csrf_token %}
+
+                                        <div class="row no-gutters">
+                                            <div class="col-md-9 d-flex">
+                                                <div class="form-group p-4 border-0">
+                                                    <label for="#">Destination</label>
+                                                    <div class="form-field">
+                                                        <div class="icon"><span class="fa fa-search"></span></div>
+                                                        <input type="search" name="search" class="form-control"
+                                                               placeholder="Search travel destination">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 d-flex">
+                                                <div class="form-group d-flex w-100 border-0">
+                                                    <div class="form-field w-100 align-items-center d-flex">
+                                                        <input type="submit" value="Search"
+                                                               class="align-self-stretch form-control btn btn-primary">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section services-section">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate d-flex align-items-center">
+                <div class="w-100">
+                    <span class="subheading">Welcome to Trip Desi</span>
+                    <h2 class="mb-4">It's time to start your adventure</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget sodales nisi, at
+                        condimentum ex. Fusce a metus nec ex condimentum ultrices.</p>
+                    <p>Nam vulputate eleifend quam quis porta. Integer sed scelerisque nisl. Vestibulum venenatis ligula
+                        sem, vitae dictum nulla semper id. Sed diam sem, condimentum non massa in, vehicula iaculis
+                        velit. Donec id enim ut justo aliquam blandit.
+
+                        Cras sed urna metus. Mauris vel luctus ex, eu interdum tortor. Nunc fringilla scelerisque
+                        venenatis. </p>
+                    <p><a href="{% url 'create-destination' %}" class="btn btn-primary py-3 px-4">Create Destination</a>
+                    </p>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+                        <div class="services services-1 color-1 d-block img"
+                             style="background-image: url('{% static 'assets/images/services-1.jpg' %}');">
+                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                    class="flaticon-paragliding"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Activities</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget sodales </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+                        <div class="services services-1 color-2 d-block img"
+                             style="background-image: url('{% static 'assets/images/services-2.jpg' %}');">
+                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                    class="flaticon-route"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Travel Arrangements</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget sodales </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+                        <div class="services services-1 color-3 d-block img"
+                             style="background-image: url('{% static 'assets/images/services-3.jpg' %}');">
+                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                    class="flaticon-tour-guide"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Private Guide</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget sodales </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+                        <div class="services services-1 color-4 d-block img"
+                             style="background-image: url('{% static 'assets/images/services-4.jpg' %}');">
+                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                    class="flaticon-map"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Location Manager</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget sodales </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section img ftco-select-destination"
+         style="background-image: url('{% static 'assets/images/bg_3.jpg' %}');">
+    <div class="container">
+        <div class="row justify-content-center pb-2">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">Destination</span>
+                <h2 class="mb-4">Tour Destination</h2>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="ftco-section">
+    {% if data %}
+    <div class="container">
+        <div class="row">
+
+            {% for data in data %}
+            <div class="col-md-4 ftco-animate">
+                <div class="project-wrap">
+                    <a href="#" class="img">
+                        <span class="price">₹550/person</span>
+                        <img src="{{ data.image }}" class="menu-img img-fluid">
+                    </a>
+                    <div class="text p-4">
+                        <span class="days">8 Days Tour</span>
+                        <h3><a href="#">{{data.place_name}}</a></h3>
+                        <p class="location"><span class="fa fa-map-marker"></span>
+                            {{data.location_state}},{{data.location_district}}</p>
+                        <a class="btn btn-outline-dark" href="/fetch-destination/{{ data.id }}">Details</a>
+                        <a class="btn btn-outline-dark" href="/update-detail/{{ data.id }}">Update</a>
+                        <a class="btn btn-outline-dark" href="/destination-delete/{{ data.id }}">Delete</a>
+
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    {% else %}
+
+    <div class="container">
+        <div class="row">
+
+            {% for destination in destination.object_list %}
+            <div class="col-md-4 ftco-animate">
+                <div class="project-wrap">
+                    <a href="#" class="img">
+                        <span class="price">₹550/person</span>
+                        <img src="{{ destination.image }}" class="menu-img img-fluid">
+                    </a>
+
+
+                    <div class="text p-4">
+                        <span class="days">8 Days Tour</span>
+                        <h3><a href="#">{{destination.place_name}}</a></h3>
+                        <p class="location"><span class="fa fa-map-marker"></span>
+                            {{destination.location_state}},{{destination.location_district}}</p>
+                        <a class="btn btn-outline-dark" href="/fetch-destination/{{ destination.id }}">Details</a>
+                        <a class="btn btn-outline-dark" href="/update-detail/{{ destination.id }}">Update</a>
+                        <a class="btn btn-outline-dark" href="/destination-delete/{{ destination.id }}">Delete</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+
+    {% if destination.paginator.num_pages > 1 %}
+    <div class="row mt-5">
+        <div class="col text-center">
+            <div class="block-27">
+                <ul>
+                    {% if destination.has_previous %}
+                    <li><a href="?page={{ destination.previous_page_number }}">&lt;</a></li>
+                    {% else %}
+                    <li><span>&lt;</span></li>
+                    {% endif %}
+
+                    {% for pg in destination.paginator.page_range %}
+                    <li><a href="?page={{ pg }}" class="{% if destination.number == pg %} active {% endif %}">{{ pg }}</a></li>
+                    {% endfor %}
+
+                    {% if destination.has_next %}
+                    <li><a href="?page={{ destination.next_page_number }}">&gt;</a></li>
+                    {% else %}
+                    <li><span>&gt;</span></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+<section class="ftco-intro ftco-section ftco-no-pt">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <div class="img" style="background-image: url('{% static 'assets/images/bg_2.jpg' %}');">
+                    <div class="overlay"></div>
+                    <h2>We Are A Desi Travel Agency</h2>
+                    <p>We Navigate, You Celebrate - TRIPDESI, Your Journey Awaits!</p>
+                    <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Ask For A Quote</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<footer class="ftco-footer bg-bottom ftco-no-pt"
+        style="background-image: url('{% static 'assets/images/bg_3.jpg' %}');">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md pt-5">
+                <div class="ftco-footer-widget pt-md-5 mb-4">
+                    <h2 class="ftco-heading-2">About</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Uzbekistan and Kazakistan, there
+                        live the blind texts.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md pt-5 border-left">
+                <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Infromation</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
+                        <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
+                        <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                        <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                        <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
+                        <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md pt-5 border-left">
+                <div class="ftco-footer-widget pt-md-5 mb-4">
+                    <h2 class="ftco-heading-2">Experience</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                        <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
+                        <li><a href="#" class="py-2 d-block">Beach</a></li>
+                        <li><a href="#" class="py-2 d-block">Nature</a></li>
+                        <li><a href="#" class="py-2 d-block">Camping</a></li>
+                        <li><a href="#" class="py-2 d-block">Party</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md pt-5 border-left">
+                <div class="ftco-footer-widget pt-md-5 mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon fa fa-map-marker"></span><span class="text">203 University Stadium, Trivandrum, India</span>
+                            </li>
+                            <li><a href="#"><span class="icon fa fa-phone"></span><span
+                                    class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@tripdesi.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p> Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This web app is made <i class="fa fa-heart" aria-hidden="true"></i> by
+                    Nipunlal
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+
+<script src="{% static 'assets/js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
